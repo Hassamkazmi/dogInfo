@@ -24,65 +24,43 @@ export default function SingleDog() {
 
   return (
     <>
-      <section className="detailpage">
-        {dog.map((item) => (
-          <div
+      <section>
+      {dog &&
+        dog.map((item) => {
+          return (
+            <Link
+            to={`/${item.name}`}
             key={item.id}
-            className=""
+            className="linkclass"
           >
-            <article>
+            <div class="card">
               <img
                 src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
-                alt={item.name}
+                alt="Avatar"
               />
-            </article>
-            <article>
-              <h1 className="">
-                {item.name}
-              </h1>
-              {item.description && (
-                <p className="">
-                  {item.description}
-                </p>
-              )}
+              <div class="container">
+                <h4>
+                  <b>{item.name}</b>
+                </h4>
+                <p>{item.bred_for}</p>
+                <p>height :{item.height.metric}</p>
+                <p>Weigth :{item.weight.metric}</p>
+                <p>Country :{item.country_code}</p>
+                <p>Temperament :{item.temperament}</p>
 
-              <ul className="">
-                <li>
-                  <span>Bred For:</span>{" "}
-                  {item.bred_for}
-                </li>
-                <li>
-                  <span>Height:</span>{" "}
-                  {item.height.metric} cm
-                </li>
-                <li>
-                  <span>Weight:</span>{" "}
-                  {item.weight.metric} kgs
-                </li>
-                <li>
-                  <span>Breed Group:</span>{" "}
-                  {item.breed_group}
-                </li>
-                <li>
-                  <span>Lifespan:</span>{" "}
-                  {item.life_span}
-                </li>
-                <li>
-                  <span>Temperament:</span>{" "}
-                  {item.temperament}
-                </li>
-              </ul>
-
-              <Link
+              </div>
+            </div>
+            </Link>
+          );
+        })}
+        
+    </section>
+    <Link
                 to="/"
                 className="backbtn"
               >
                 &larr; Back
               </Link>
-            </article>
-          </div>
-        ))}
-      </section>
     </>
   )
 }

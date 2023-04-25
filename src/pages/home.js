@@ -6,6 +6,7 @@ const home = () => {
   return (
     <Fragment>
       <Slider />
+      <h2 className='heading'>Top American  Breed</h2>
       <Section />
     </Fragment>
   )
