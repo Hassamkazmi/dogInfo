@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams ,useNavigate} from "react-router-dom"
 
 export default function SingleDog() {
   const [dog, setDog] = useState([])
-  const { name } = useParams()
+  const { name } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSingleDogData = async () => {
@@ -20,7 +21,13 @@ export default function SingleDog() {
     }
 
     fetchSingleDogData()
-  }, [name])
+  }, [name]);
+
+  
+  
+  const handlebtn = (e) => {
+    navigate(-1)
+  }
 
   return (
     <>
@@ -55,12 +62,13 @@ export default function SingleDog() {
         })}
         
     </section>
-    <Link
-                to="/"
-                className="backbtn"
-              >
-                &larr; Back
-              </Link>
+    <button
+     className="backbtn"
+     onClick={handlebtn}
+    >
+      &larr; Back
+    </button>
+   
     </>
   )
 }
