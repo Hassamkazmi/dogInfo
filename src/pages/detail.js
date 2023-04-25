@@ -24,38 +24,65 @@ export default function SingleDog() {
 
   return (
     <>
-      <section>
-      {dog &&
-        dog.map((item) => {
-          return (
-            <Link
-            to={`/${item.name}`}
+      <section className="detailpage">
+        {dog.map((item) => (
+          <div
             key={item.id}
-            className="linkclass"
+            className=""
           >
-            <div class="card">
+            <article>
               <img
                 src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
-                alt="Avatar"
+                alt={item.name}
               />
-              <div class="container">
-                <h4>
-                  <b>{item.name}</b>
-                </h4>
-                <p>{item.bred_for}</p>
-              </div>
-            </div>
-            </Link>
-          );
-        })}
-        
-    </section>
-    <Link
+            </article>
+            <article>
+              <h1 className="">
+                {item.name}
+              </h1>
+              {item.description && (
+                <p className="">
+                  {item.description}
+                </p>
+              )}
+
+              <ul className="">
+                <li>
+                  <span>Bred For:</span>{" "}
+                  {item.bred_for}
+                </li>
+                <li>
+                  <span>Height:</span>{" "}
+                  {item.height.metric} cm
+                </li>
+                <li>
+                  <span>Weight:</span>{" "}
+                  {item.weight.metric} kgs
+                </li>
+                <li>
+                  <span>Breed Group:</span>{" "}
+                  {item.breed_group}
+                </li>
+                <li>
+                  <span>Lifespan:</span>{" "}
+                  {item.life_span}
+                </li>
+                <li>
+                  <span>Temperament:</span>{" "}
+                  {item.temperament}
+                </li>
+              </ul>
+
+              <Link
                 to="/"
                 className="backbtn"
               >
                 &larr; Back
               </Link>
+            </article>
+          </div>
+        ))}
+      </section>
     </>
   )
 }

@@ -86,7 +86,7 @@ export default function Home() {
                   <Link
                     to={`/${dog.name}`}
                     key={dog.id}
-                    className=""
+                    className="bg-slate-700 p-4 rounded hover:bg-slate-600 transition-all duration-200"
                   >
                     <article>
                       <img

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import logo from '../assets/cosmetics-jar.png'
+import logo from '../assets/site logo.jpeg'
 import { Link } from "react-router-dom"
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
     <Fragment>
             <nav>
               <Link to={'/'}>
-              <h2 className='logo'>Logo</h2>
+                <img src={logo} alt='' />
               </Link>
                 
                 <ul>
